@@ -15,15 +15,19 @@ const parseTrustProxy = (value) => {
   return value;
 };
 
-const DEFAULT_ORIGINS = 'http://localhost:5001,https://shared-owners.onrender.com';
+const BUILTIN_ORIGINS = [
+  'http://localhost:5001',
+  'https://shared-owners.onrender.com',
+  'https://shared-owners.vercel.app',
+];
 
-/** Comma-separated CORS_ORIGIN becomes a list; a single value stays a string. */
+/** Env origins are added on top of the built-in list, so a single localhost value cannot drop production. */
 const parseOrigins = (value) => {
-  const origins = (value || DEFAULT_ORIGINS)
+  const fromEnv = (value || '')
     .split(',')
     .map((origin) => origin.trim())
     .filter(Boolean);
-  return origins.length === 1 ? origins[0] : origins;
+  return [...new Set([...BUILTIN_ORIGINS, ...fromEnv])];
 };
 
 const corsOrigin = parseOrigins(process.env.CORS_ORIGIN);
@@ -32,7 +36,7 @@ const config = {
   port: process.env.PORT || 3000,
   corsOrigin,
   /** Base URL used for links in emails (verification, password reset) */
-  frontendUrl: process.env.FRONTEND_URL || (Array.isArray(corsOrigin) ? corsOrigin[0] : corsOrigin),
+  frontendUrl: process.env.FRONTEND_URL || (process.env.CORS_ORIGIN || '').split(',')[0].trim() || 'http://localhost:5001',
   mongoUri: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/shared_ownership',
   nodeEnv: process.env.NODE_ENV || 'development',
   trustProxy: parseTrustProxy(process.env.TRUST_PROXY),
