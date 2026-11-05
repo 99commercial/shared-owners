@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import {
-  Building2, CheckCircle2, Crown, HomeIcon, Image, Landmark, Layers, Link2, MapPin, PieChart, Sparkles, TrendingUp,
+  Building2, CheckCircle2, HomeIcon, Image, Landmark, Layers, Link2, MapPin, PieChart, Sparkles, TrendingUp,
 } from 'lucide-react';
 import { adminApi } from '../../../services/endpoints';
 import useRange from '../../../hooks/useRange';
@@ -53,8 +53,6 @@ export default function AdminDevelopmentAnalyticsPage() {
         <KpiCard icon={CheckCircle2} tone="green" label="Live" value={formatNumber(t.live)} hint={`${percent(t.live, t.total)}% of developments`} to="/admin/developments?status=live" />
         <KpiCard icon={Link2} tone="violet" label="Homes in developments" value={formatNumber(t.linkedProperties)} hint={`${t.averagePropertiesPerDevelopment} per development on average`} />
         <KpiCard icon={HomeIcon} tone="cyan" label="Standalone org homes" value={formatNumber(t.standaloneOrganisationProperties)} hint="Organisation listings not in a development" />
-        <KpiCard icon={Crown} tone="amber" label="Premium" value={formatNumber(t.premium)} hint="Featured developments" />
-        <KpiCard icon={Building2} tone="rose" label="Homes for Londoners" value={formatNumber(t.homesForLondoners)} hint="Syndicated developments" />
         <KpiCard icon={Image} tone="slate" label="With images" value={formatNumber(t.withImages)} hint={`${percent(t.withImages, t.total)}% have a main image`} />
         <KpiCard icon={Layers} tone="brand" label="Development types" value={formatNumber(a.byType.length)} hint="Distinct types in use" />
       </div>

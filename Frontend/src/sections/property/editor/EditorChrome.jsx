@@ -1,9 +1,9 @@
-import { Crown, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 /**
  * Pieces shared by the property and development editors.
  * Steps: { key, label, description, icon, state, disabled, required }
- * where state is 'complete' | 'incomplete' | 'pending' | 'locked'.
+ * where state is 'complete' | 'incomplete' | 'pending'.
  */
 
 const TONES = {
@@ -29,7 +29,6 @@ const STATE_CHIPS = {
   complete: { label: 'Completed', className: 'bg-green-50 text-green-700 border-green-200' },
   incomplete: { label: 'Needs info', className: 'bg-amber-50 text-amber-700 border-amber-200' },
   pending: { label: 'Pending', className: 'bg-gray-50 text-gray-500 border-gray-200' },
-  locked: { label: 'Premium', className: 'bg-gray-50 text-gray-400 border-gray-200' },
 };
 
 export function Stepper({ steps, activeKey, onSelect }) {
@@ -102,7 +101,6 @@ export function ProgressSummary({ steps, activeKey, onSelect }) {
               </div>
               <div className="mt-2 flex items-center gap-1.5">
                 <span className={`inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-full border ${chip.className}`}>
-                  {step.state === 'locked' && <Crown className="w-3 h-3" />}
                   {chip.label}
                 </span>
                 {step.required && <span className="text-[10px] uppercase tracking-wide text-gray-400">Required</span>}

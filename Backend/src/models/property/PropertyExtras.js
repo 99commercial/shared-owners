@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { EMAIL_REGEX, tabBaseFields } = require('../shared');
 
-/** Whole tab is for premium listings only (enforced in the service) */
+/** Optional listing extras (announcement, responder email) */
 const propertyExtrasSchema = new mongoose.Schema(
   {
     ...tabBaseFields('property', 'Property'),

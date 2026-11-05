@@ -125,21 +125,16 @@ const syncStatusAfterEdit = (development, ctx) => {
 };
 
 /**
- * "Publish on STB" / "Publish on Homes For Londoners" toggles.
- * Body: { publish: boolean, homesForLondoners?: boolean }
+ * Publish / unpublish toggle for SharedOwnership.
+ * Body: { publish: boolean }
  */
 const applyPublishing = (development, body, ctx) => {
-  const { publish, homesForLondoners = false } = body;
+  const { publish } = body;
   if (typeof publish !== 'boolean') {
     throw new ApiError(400, 'publish must be true or false');
   }
-  if (typeof homesForLondoners !== 'boolean') {
-    throw new ApiError(400, 'homesForLondoners must be true or false');
-  }
 
   const { status } = development;
-  const syndicationChanged =
-    Boolean(development.syndication?.homesForLondoners) !== homesForLondoners;
 
   if (ctx.requiresApproval && status === DEVELOPMENT_STATUS.ARCHIVED) {
     throw new ApiError(409, 'This development is archived. Ask your organisation to relist it');
@@ -155,14 +150,12 @@ const applyPublishing = (development, body, ctx) => {
     }
   }
 
-  development.set('syndication.homesForLondoners', homesForLondoners);
-
   if (!publish) {
     development.status = DEVELOPMENT_STATUS.DRAFT;
   } else if (!ctx.requiresApproval) {
     development.status = DEVELOPMENT_STATUS.LIVE;
     if (!development.publishedAt) development.publishedAt = new Date();
-  } else if (status !== DEVELOPMENT_STATUS.LIVE || syndicationChanged) {
+  } else if (status !== DEVELOPMENT_STATUS.LIVE) {
     development.status = DEVELOPMENT_STATUS.PENDING_APPROVAL;
   }
 };

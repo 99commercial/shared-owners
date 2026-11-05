@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import {
-  AlertTriangle, BedDouble, CheckCircle2, Clock, Crown, Eye, HomeIcon, Landmark, MapPin, MessageSquare,
+  AlertTriangle, BedDouble, CheckCircle2, Clock, Eye, HomeIcon, Landmark, MapPin, MessageSquare,
   PoundSterling, Percent, PieChart, Sparkles, TrendingUp, Trophy, Users,
 } from 'lucide-react';
 import { adminApi } from '../../../services/endpoints';
@@ -66,7 +66,7 @@ export default function AdminPropertyAnalyticsPage() {
         <KpiCard icon={Eye} tone="cyan" label="Total views" value={formatCompact(t.views)} hint={`${formatNumber(t.enquiries)} enquiries`} />
         <KpiCard icon={Percent} tone="violet" label="Enquiry rate" value={`${t.enquiryRate}%`} hint="Enquiries per view" />
         <KpiCard icon={PoundSterling} tone="green" label="Avg. full market value" value={t.averageFullMarketValue ? formatMoney(t.averageFullMarketValue) : '—'} hint={t.averageMinimumShare ? `Avg. minimum share ${t.averageMinimumShare}%` : 'Where a price is set'} />
-        <KpiCard icon={Crown} tone="amber" label="Premium" value={formatNumber(t.premium)} hint={`${formatNumber(t.inDevelopment)} inside developments`} />
+        <KpiCard icon={HomeIcon} tone="amber" label="Inside developments" value={formatNumber(t.inDevelopment)} hint="Linked to a development" />
       </div>
 
       <div className="grid xl:grid-cols-3 gap-6">

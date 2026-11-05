@@ -32,9 +32,6 @@ export default function DevelopmentCard({ development, active = false, onHover }
             <span className="px-2.5 py-1 rounded-md bg-white/95 text-[10px] font-bold uppercase tracking-wider text-ink shadow-sm">{labelize(development.developmentType)}</span>
           )}
         </div>
-        {development.isPremium && (
-          <span className="absolute top-3 right-3 px-2 py-1 rounded-md bg-amber-400 text-[10px] font-bold uppercase tracking-wider text-amber-950 shadow-sm">Featured</span>
-        )}
       </Link>
 
       <div className="flex-1 flex flex-col p-4">

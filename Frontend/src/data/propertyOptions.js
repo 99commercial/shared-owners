@@ -19,7 +19,7 @@ export const PROPERTY_SECTIONS = [
   { key: 'gallery', slug: 'gallery', label: 'Images', description: 'Property photos', required: true },
   { key: 'videoTour', slug: 'video-tour', label: 'Virtual Tours', description: 'Tour links & videos', required: false },
   { key: 'attachments', slug: 'attachments', label: 'Documents', description: 'EPC & certificates', required: true },
-  { key: 'extras', slug: 'extras', label: 'Extras', description: 'Premium options', required: false, premium: true },
+  { key: 'extras', slug: 'extras', label: 'Extras', description: 'Announcements & responder email', required: false },
   { key: 'enquiryContacts', slug: 'enquiry-contacts', label: 'Enquiry Contacts', description: 'Sales contact details', required: false },
 ];
 

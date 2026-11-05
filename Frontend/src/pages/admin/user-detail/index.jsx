@@ -83,7 +83,7 @@ export default function AdminUserDetailPage() {
       {tab === 'overview' && (
         <>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <KpiCard icon={HomeIcon} label="Properties" value={formatNumber(t.properties)} hint={`${t.premium} premium`} />
+            <KpiCard icon={HomeIcon} label="Properties" value={formatNumber(t.properties)} hint={`${t.incomplete} incomplete`} />
             <KpiCard icon={CheckCircle2} tone="green" label="Live" value={formatNumber(properties.byStatus.live)} hint={`${properties.byStatus.pending_approval} awaiting approval`} />
             <KpiCard icon={Eye} tone="cyan" label="Views" value={formatNumber(t.views)} hint={`${t.enquiryRate}% enquiry rate`} />
             <KpiCard icon={MessageSquare} tone="violet" label="Enquiries" value={formatNumber(t.enquiries)} hint={`${t.incomplete} incomplete listings`} />

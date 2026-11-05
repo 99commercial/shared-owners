@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { X, Loader2, MapPin, Eye, MessageSquare, Crown, AlertTriangle, Trash2, CheckSquare, HomeIcon, Landmark } from 'lucide-react';
+import { X, Loader2, MapPin, Eye, MessageSquare, AlertTriangle, Trash2, CheckSquare, HomeIcon, Landmark } from 'lucide-react';
 import { adminApi } from '../../../services/endpoints';
 import ConfirmDialog from '../../../components/admin/ConfirmDialog';
 import AccountCell from '../../../components/admin/AccountCell';
@@ -60,7 +60,6 @@ function DevelopmentFacts({ development }) {
       <InfoTile label="Type" value={labelize(development.developmentType)} />
       <InfoTile label="Sales telephone" value={details.salesTelephone} />
       <InfoTile label="Sales email" value={details.salesEmail} />
-      <InfoTile label="Homes for Londoners" value={development.syndication?.homesForLondoners ? 'Yes' : 'No'} />
       <InfoTile label="Brochures" value={details.brochures?.length || 0} />
       <InfoTile label="Images" value={development.images?.images?.length || 0} />
     </div>
@@ -128,7 +127,6 @@ export default function ListingPreviewModal({ kind = 'property', id, onClose }) 
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className={`badge ${STATUS_STYLES[listing.status]}`}>{labelize(listing.status)}</span>
-                {listing.isPremium && <span className="badge bg-amber-100 text-amber-700"><Crown className="w-3 h-3" /> Premium</span>}
                 {listing.ownerType && <span className="badge bg-gray-100 text-gray-600">{labelize(listing.ownerType)} listing</span>}
                 {listing.reference && <span className="text-xs text-gray-400 font-mono">Ref {listing.reference}</span>}
               </div>

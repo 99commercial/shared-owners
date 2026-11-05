@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Trash2, Lock } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
 import {
   Field, TextInput, NumberInput, TextArea, SelectInput, YesNoSelect, CheckboxGroup,
 } from '../../../components/FormFields';
@@ -234,28 +234,24 @@ export default function DetailsSection({ property, onSave, saving, readOnly }) {
       <div className="pt-6 border-t border-gray-100">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-[15px] font-semibold text-ink">FAQs</h3>
-          {property.isPremium && !readOnly && (
+          {!readOnly && (
             <button type="button" onClick={() => addRow('faqs', { question: '', answer: '' })} className="text-sm text-brand-700 font-medium flex items-center gap-1">
               <Plus className="w-4 h-4" /> Add FAQ
             </button>
           )}
         </div>
-        {!property.isPremium ? (
-          <p className="text-sm text-gray-400 flex items-center gap-2"><Lock className="w-4 h-4" /> FAQs are available on premium listings only.</p>
-        ) : (
-          <div className="space-y-3">
-            {form.faqs.length === 0 && <p className="text-sm text-gray-400">No FAQs added.</p>}
-            {form.faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-100 rounded-lg p-3 space-y-2">
-                <div className="flex gap-2">
-                  <TextInput placeholder="Question" value={faq.question} onChange={(v) => updateRow('faqs', i, 'question', v)} />
-                  {!readOnly && <button type="button" onClick={() => removeRow('faqs', i)} className="p-2.5 text-gray-400 hover:text-red-600"><Trash2 className="w-4 h-4" /></button>}
-                </div>
-                <TextArea placeholder="Answer" rows={2} value={faq.answer} onChange={(v) => updateRow('faqs', i, 'answer', v)} />
+        <div className="space-y-3">
+          {form.faqs.length === 0 && <p className="text-sm text-gray-400">No FAQs added.</p>}
+          {form.faqs.map((faq, i) => (
+            <div key={i} className="border border-gray-100 rounded-lg p-3 space-y-2">
+              <div className="flex gap-2">
+                <TextInput placeholder="Question" value={faq.question} onChange={(v) => updateRow('faqs', i, 'question', v)} />
+                {!readOnly && <button type="button" onClick={() => removeRow('faqs', i)} className="p-2.5 text-gray-400 hover:text-red-600"><Trash2 className="w-4 h-4" /></button>}
               </div>
-            ))}
-          </div>
-        )}
+              <TextArea placeholder="Answer" rows={2} value={faq.answer} onChange={(v) => updateRow('faqs', i, 'answer', v)} />
+            </div>
+          ))}
+        </div>
       </div>
     </SectionForm>
   );

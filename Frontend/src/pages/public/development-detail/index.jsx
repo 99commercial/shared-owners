@@ -130,7 +130,6 @@ export default function DevelopmentDetailPage() {
           badges={[
             { label: homes.available ? `${homes.available} available` : homes.homes ? 'Fully reserved' : 'Coming soon', className: homes.available ? 'bg-emerald-500 text-white' : 'bg-gray-700 text-white' },
             development.developmentType && { label: labelize(development.developmentType), className: 'bg-brand-500 text-white' },
-            development.isPremium && { label: 'Featured', className: 'bg-amber-400 text-amber-950' },
           ]}
           title={development.name}
           address={addressLine(development.address, { full: true })}

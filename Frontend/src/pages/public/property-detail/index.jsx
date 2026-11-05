@@ -173,7 +173,6 @@ export default function PropertyDetailPage() {
             availability && { label: labelize(availability), className: AVAILABILITY_BADGE[availability] },
             scheme && { label: labelize(scheme), className: 'bg-brand-500 text-white' },
             property.reference && { label: `Ref ${property.reference}` },
-            property.isPremium && { label: 'Featured', className: 'bg-amber-400 text-amber-950' },
           ]}
           title={property.name}
           address={addressLine(property.address, { full: true })}

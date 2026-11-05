@@ -13,7 +13,7 @@ const propertyVideoTourSchema = new mongoose.Schema(
     /** Only the src URL from the supplier's embed code; raw iframe HTML is never stored */
     virtualTourUrl: httpsUrl(),
 
-    /** Premium listings only (enforced in the service) */
+    /** Optional Walkly tour link */
     walklyTourUrl: httpsUrl(),
   },
   { timestamps: true }

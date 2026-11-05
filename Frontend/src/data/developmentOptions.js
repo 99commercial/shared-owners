@@ -20,6 +20,6 @@ export const DEVELOPMENT_SECTIONS = [
   { key: 'development', slug: 'development', label: 'General Details', description: 'Name, type, address & map', required: true },
   { key: 'details', slug: 'details', label: 'Details', description: 'Description, tours & documents' },
   { key: 'images', slug: 'images', label: 'Images', description: 'Banners & gallery' },
-  { key: 'extras', slug: 'extras', label: 'Extras', description: 'Developer page summary', premium: true },
-  { key: 'publishing', slug: 'publishing', label: 'Publishing', description: 'Go live & syndication', required: true },
+  { key: 'extras', slug: 'extras', label: 'Extras', description: 'Developer page summary' },
+  { key: 'publishing', slug: 'publishing', label: 'Publishing', description: 'Go live', required: true },
 ];

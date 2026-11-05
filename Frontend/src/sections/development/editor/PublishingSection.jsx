@@ -11,11 +11,10 @@ const FIELD_LABELS = {
   location: 'Map pin',
 };
 
-/** Body: { publish, homesForLondoners }. With approval, publishing submits for review instead of going live. */
+/** Body: { publish }. With approval, publishing submits for review instead of going live. */
 export default function PublishingSection({ development, requiresApproval, onSave, saving, readOnly }) {
   const isPublished = development.status === 'live' || development.status === 'pending_approval';
   const [publish, setPublish] = useState(isPublished);
-  const [homesForLondoners, setHomesForLondoners] = useState(Boolean(development.syndication?.homesForLondoners));
   const missing = development.readiness?.missingFields || [];
   const lockedLive = requiresApproval && development.status === 'live';
 
@@ -27,7 +26,7 @@ export default function PublishingSection({ development, requiresApproval, onSav
           ? 'Publishing sends the development to your organisation for approval before it goes live.'
           : 'Publish to show the development on SharedOwnership. Its homes are listed separately.'
       }
-      onSubmit={() => onSave({ publish, homesForLondoners })}
+      onSubmit={() => onSave({ publish })}
       saving={saving}
       readOnly={readOnly}
     >
@@ -52,13 +51,6 @@ export default function PublishingSection({ development, requiresApproval, onSav
           disabled={readOnly || (missing.length > 0 && !publish) || (lockedLive && publish)}
           label={requiresApproval ? 'Publish on SharedOwnership (needs approval)' : 'Publish on SharedOwnership'}
           hint={lockedLive ? 'Only your organisation can unpublish a live development' : 'Untick to take the development back to draft'}
-        />
-        <CheckboxField
-          checked={homesForLondoners}
-          onChange={setHomesForLondoners}
-          disabled={readOnly}
-          label="Also publish on Homes for Londoners"
-          hint="For developments in Greater London"
         />
       </FieldGroup>
     </SectionForm>

@@ -9,7 +9,6 @@ const {
   FILE_INPUT_FIELDS,
   IMAGE_INPUT_FIELDS,
   tabFields,
-  requirePremium,
   withUploadMeta,
   mapFiles,
   normaliseNameAndPlace,
@@ -95,8 +94,7 @@ const normalisers = {
     return data;
   },
 
-  async extras(body, { development }) {
-    requirePremium(development, 'The Extras section');
+  async extras(body) {
     return pick(body, tabFields(DevelopmentExtras));
   },
 };

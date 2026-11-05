@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import {
-  CheckCircle2, AlertTriangle, Clock, XCircle, Ban, Crown, Eye, MessageSquare, Info, Building2, FileText,
+  CheckCircle2, AlertTriangle, Clock, XCircle, Ban, Eye, MessageSquare, Info, Building2, FileText,
   UserCheck, Image, Video, FileCheck, Sparkles, PhoneCall, ChevronLeft, ChevronRight,
 } from 'lucide-react';
 import PageHero from '../../../components/PageHero';
@@ -105,8 +105,7 @@ function StatusBanner({ property, requiresApproval }) {
   return null;
 }
 
-const stepState = (info, step, property) => {
-  if (step.premium && property && !property.isPremium) return 'locked';
+const stepState = (info) => {
   if (info?.complete) return 'complete';
   if (info?.saved) return 'incomplete';
   return 'pending';
@@ -129,7 +128,7 @@ export default function PropertyEditor({
   const steps = PROPERTY_SECTIONS.map((s) => ({
     ...s,
     icon: SECTION_ICONS[s.key],
-    state: stepState(sections[s.key], s, property),
+    state: stepState(sections[s.key]),
     disabled: isNew && s.key !== 'location',
   }));
 
@@ -183,7 +182,6 @@ export default function PropertyEditor({
             <div className="flex flex-col items-start sm:items-end gap-2">
               <div className="flex items-center gap-2">
                 <StatusBadge status={property.status} />
-                {property.isPremium && <span className="badge bg-brand-600 text-white gap-1"><Crown className="w-3 h-3" /> Premium</span>}
               </div>
               <div className="flex items-center gap-4 text-xs text-gray-600">
                 <span className="flex items-center gap-1"><Eye className="w-3.5 h-3.5" />{property.stats?.views ?? 0} views</span>

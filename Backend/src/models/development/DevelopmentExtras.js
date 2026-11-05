@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { tabBaseFields } = require('../shared');
 
-/** Whole tab is for premium (Featured Developer Package) only, enforced in the service */
+/** Optional extras shown on the Developer Page */
 const developmentExtrasSchema = new mongoose.Schema(
   {
     ...tabBaseFields('development', 'Development'),

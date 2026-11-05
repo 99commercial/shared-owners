@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Lock } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { Field, TextInput, SelectInput } from '../../../components/FormFields';
 import SectionForm, { FieldGroup } from './SectionForm';
@@ -31,7 +30,7 @@ export default function VideoTourSection({ property, onSave, saving, readOnly })
         videoUrl: form.videoProvider === 'none' ? undefined : form.videoUrl.trim(),
         virtualTourSupplier: form.virtualTourSupplier.trim(),
         virtualTourUrl: form.virtualTourUrl.trim(),
-        walklyTourUrl: property.isPremium ? form.walklyTourUrl.trim() : undefined,
+        walklyTourUrl: form.walklyTourUrl.trim(),
       }) || {}
     );
   };
@@ -64,12 +63,8 @@ export default function VideoTourSection({ property, onSave, saving, readOnly })
         </Field>
       </FieldGroup>
 
-      <Field label="Walkly tour URL" floating={property.isPremium}>
-        {property.isPremium ? (
-          <TextInput value={form.walklyTourUrl} onChange={set('walklyTourUrl')} placeholder="https://…" />
-        ) : (
-          <p className="text-sm text-gray-400 flex items-center gap-2"><Lock className="w-4 h-4" /> Available on premium listings only.</p>
-        )}
+      <Field label="Walkly tour URL">
+        <TextInput value={form.walklyTourUrl} onChange={set('walklyTourUrl')} placeholder="https://…" />
       </Field>
     </SectionForm>
   );

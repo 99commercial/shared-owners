@@ -15,15 +15,26 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Auto-refresh on 401
+// Auto-refresh on 401. Refresh-token calls must not re-enter this path —
+// each api.post() gets a fresh config, so without this guard a bad refresh
+// token retries forever and auth loading never finishes (blank /login).
 api.interceptors.response.use(
   (res) => res,
   async (err) => {
-    const original = err.config;
+    const original = err.config || {};
+    const isRefreshCall = typeof original.url === 'string' && original.url.includes('refresh-token');
+
+    if (err.response?.status === 401 && isRefreshCall) {
+      authStorage.clear();
+      window.dispatchEvent(new Event('auth:logout'));
+      return Promise.reject(err);
+    }
+
     if (err.response?.status === 401 && !original._retry) {
       original._retry = true;
       const refreshToken = authStorage.getRefreshToken();
       if (!refreshToken) {
+        authStorage.clear();
         window.dispatchEvent(new Event('auth:logout'));
         return Promise.reject(err);
       }
@@ -33,6 +44,7 @@ api.interceptors.response.use(
         const res = await api.post(refreshPath, { refreshToken });
         const { accessToken, refreshToken: newRefresh } = res.data.data;
         authStorage.setSession({ accessToken, refreshToken: newRefresh });
+        original.headers = original.headers || {};
         original.headers.Authorization = `Bearer ${accessToken}`;
         return api(original);
       } catch {

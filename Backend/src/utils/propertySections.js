@@ -94,12 +94,6 @@ const SINGLE_DOCUMENT_FIELDS = Object.freeze([
   'keyInformationDocument',
 ]);
 
-const requirePremium = (property, feature) => {
-  if (!property.isPremium) {
-    throw new ApiError(403, `${feature} is only available on premium listings`);
-  }
-};
-
 /** Keeps the original uploader / upload time for files that were already on the tab */
 const withUploadMeta = (file, existingFiles, actorId, fields, label) => {
   if (!isPlainObject(file) || !isNonEmptyString(file.url)) {
@@ -203,7 +197,7 @@ const normalisers = {
     return data;
   },
 
-  async details(body, { property }) {
+  async details(body) {
     const data = pick(body, tabFields(PropertyDetails));
 
     if (data.pricing !== undefined && data.pricing !== null) {
@@ -216,7 +210,6 @@ const normalisers = {
     }
 
     if (data.materials !== undefined) data.materials = sanitizeRichText(data.materials);
-    if (Array.isArray(data.faqs) && data.faqs.length) requirePremium(property, 'FAQs');
 
     return data;
   },
@@ -247,10 +240,8 @@ const normalisers = {
     return data;
   },
 
-  async videoTour(body, { property }) {
-    const data = pick(body, tabFields(PropertyVideoTour));
-    if (data.walklyTourUrl) requirePremium(property, 'Walkly tour');
-    return data;
+  async videoTour(body) {
+    return pick(body, tabFields(PropertyVideoTour));
   },
 
   async attachments(body, { property, ctx, existing }) {
@@ -285,8 +276,7 @@ const normalisers = {
     return data;
   },
 
-  async extras(body, { property }) {
-    requirePremium(property, 'The Extras section');
+  async extras(body) {
     return pick(body, tabFields(PropertyExtras));
   },
 
@@ -306,7 +296,6 @@ module.exports = {
   IMAGE_INPUT_FIELDS,
   tabFields,
   applyFields,
-  requirePremium,
   withUploadMeta,
   mapFiles,
   normaliseNameAndPlace,

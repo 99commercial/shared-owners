@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import {
-  Info, FileText, Image, Sparkles, Send, Ban, Clock, CheckCircle2, AlertTriangle, Crown, ChevronLeft, ChevronRight,
+  Info, FileText, Image, Sparkles, Send, Ban, Clock, CheckCircle2, AlertTriangle, ChevronLeft, ChevronRight,
 } from 'lucide-react';
 import PageHero from '../../../components/PageHero';
 import StatusBadge from '../../../components/StatusBadge';
@@ -40,7 +40,6 @@ const stepState = (key, d) => {
       if (!d.images) return 'pending';
       return d.images.images?.length ? 'complete' : 'incomplete';
     case 'extras':
-      if (!d.isPremium) return 'locked';
       return d.extras ? 'complete' : 'pending';
     case 'publishing':
       if (d.status === 'live') return 'complete';
@@ -141,7 +140,6 @@ export default function DevelopmentEditor({ development, onSave, savingSlug, bre
           !isNew && (
             <div className="flex items-center gap-2">
               <StatusBadge status={development.status} />
-              {development.isPremium && <span className="badge bg-brand-600 text-white gap-1"><Crown className="w-3 h-3" /> Premium</span>}
             </div>
           )
         }

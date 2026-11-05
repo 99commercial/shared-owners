@@ -97,7 +97,6 @@ const propertyDetailsSchema = new mongoose.Schema(
     electricitySupply: { type: String, enum: ELECTRICITY_SUPPLY },
     broadband: { type: String, enum: BROADBAND },
 
-    /** Premium listings only (enforced in the service) */
     faqs: { type: [faqSchema], default: [] },
   },
   { timestamps: true }

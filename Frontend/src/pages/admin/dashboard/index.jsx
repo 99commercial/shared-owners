@@ -84,7 +84,7 @@ export default function AdminDashboardPage() {
         <KpiCard icon={Building2} tone="violet" label="Organisations" value={formatNumber(accounts.companies.total)} hint={`+${accounts.companies.newLast30Days} in the last 30 days`} to="/admin/companies" />
         <KpiCard icon={UsersRound} tone="cyan" label="Organisation members" value={formatNumber(members)} hint={`${accounts.companyAdmins.total} admins · ${accounts.companyUsers.total} users`} to="/admin/analytics/accounts" />
         <KpiCard icon={Activity} tone="green" label="Signed in now" value={formatNumber(sessions.active)} hint={`${formatNumber(sessions.loginsLast7Days)} logins in 7 days`} to="/admin/analytics/accounts" />
-        <KpiCard icon={HomeIcon} tone="green" label="Properties" value={formatNumber(properties.total)} hint={`${properties.byStatus.live} live · ${properties.premium} premium`} to="/admin/properties" />
+        <KpiCard icon={HomeIcon} tone="green" label="Properties" value={formatNumber(properties.total)} hint={`${properties.byStatus.live} live`} to="/admin/properties" />
         <KpiCard icon={Landmark} tone="amber" label="Developments" value={formatNumber(developments.total)} hint={`${developments.byStatus.live} live`} to="/admin/developments" />
         <KpiCard icon={CheckSquare} tone="rose" label="Awaiting approval" value={formatNumber(approvalQueue.total)} hint="Individual users' listings" to="/admin/approvals" />
         <KpiCard icon={Inbox} tone="slate" label="New contact queries" value={formatNumber(queries.byStatus.new)} hint={`${formatNumber(queries.total)} received in total`} to="/admin/queries?status=new" />
