@@ -21,7 +21,7 @@ import { adminAccountPath } from '../../../utils/adminPaths';
 
 const TREND_SERIES = [
   { key: 'signups', label: 'Sign-ups', color: '#7c3aed' },
-  { key: 'logins', label: 'Logins', color: '#2563eb' },
+  { key: 'logins', label: 'Logins', color: '#f2c514' },
   { key: 'properties', label: 'New properties', color: '#16a34a' },
   { key: 'developments', label: 'New developments', color: '#f59e0b' },
 ];

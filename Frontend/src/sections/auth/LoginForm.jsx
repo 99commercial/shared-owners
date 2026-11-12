@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Building2, Eye, EyeOff, Loader2, MailWarning } from 'lucide-react';
+import { Eye, EyeOff, Loader2, MailWarning } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../contexts/AuthContext';
 import { commonApi } from '../../services/endpoints';
 import AuthSplitLayout from '../../components/AuthSplitLayout';
+import BrandLogo from '../../components/BrandLogo';
 import { LOGIN_PANEL } from '../../data/authPanels';
 
 const REDIRECT = {
@@ -54,8 +55,8 @@ export default function LoginForm() {
   return (
     <AuthSplitLayout {...LOGIN_PANEL}>
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-600 rounded-2xl mb-4 shadow-lg">
-          <Building2 className="w-7 h-7 text-white" />
+        <div className="inline-flex mb-4">
+          <BrandLogo size="lg" className="rounded-2xl shadow-lg" />
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
         <p className="text-gray-500 mt-1 text-sm">Sign in to your account</p>

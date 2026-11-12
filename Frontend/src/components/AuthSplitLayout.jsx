@@ -7,13 +7,13 @@ import { CheckCircle2 } from 'lucide-react';
 export default function AuthSplitLayout({ image, imageAlt, title, subtitle, highlights = [], children }) {
   return (
     <div className="flex-1 flex">
-      <div className="flex-1 lg:w-1/2 flex items-center justify-center py-12 px-4 sm:px-8 bg-gradient-to-br from-primary-50 to-blue-100 lg:bg-none lg:bg-white">
+      <div className="flex-1 lg:w-1/2 flex items-center justify-center py-12 px-4 sm:px-8 bg-gradient-to-br from-brand-50 to-white lg:bg-none lg:bg-white">
         <div className="w-full max-w-md">{children}</div>
       </div>
 
-      <aside className="hidden lg:flex lg:w-1/2 relative overflow-hidden flex-col items-center justify-center px-12 xl:px-16 py-12 bg-gradient-to-br from-primary-50 via-blue-50 to-primary-100">
-        <div aria-hidden className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary-100/70" />
-        <div aria-hidden className="absolute -bottom-32 -left-20 w-96 h-96 rounded-full bg-white/60" />
+      <aside className="hidden lg:flex lg:w-1/2 relative overflow-hidden flex-col items-center justify-center px-12 xl:px-16 py-12 bg-gradient-to-br from-brand-50 via-white to-brand-100">
+        <div aria-hidden className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-brand-200/60" />
+        <div aria-hidden className="absolute -bottom-32 -left-20 w-96 h-96 rounded-full bg-white/70" />
 
         <div className="relative w-full max-w-xl">
           {/* The illustrations have an opaque white background; multiply lets the panel show through it */}

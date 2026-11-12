@@ -74,7 +74,7 @@ export default function ImageGalleryEditor({ images, onChange, max, readOnly, em
             <div key={img.url} className={`rounded-xl border overflow-hidden ${img.isPrimary ? 'border-brand-400 ring-2 ring-brand-100' : 'border-gray-200'}`}>
               <div className="relative aspect-video bg-gray-50">
                 <Thumb url={img.url} />
-                {img.isPrimary && <span className="absolute top-2 left-2 badge bg-brand-500 text-white">Primary</span>}
+                {img.isPrimary && <span className="absolute top-2 left-2 badge bg-brand-500 text-ink">Primary</span>}
               </div>
               <div className="p-3 space-y-2">
                 <TextInput value={img.caption} onChange={(v) => setImages((list) => list.map((x, idx) => (idx === i ? { ...x, caption: v } : x)))} placeholder="Caption" maxLength={200} />

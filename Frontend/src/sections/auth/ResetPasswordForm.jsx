@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { Building2, Eye, EyeOff, Loader2, CheckCircle } from 'lucide-react';
+import { Eye, EyeOff, Loader2, CheckCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { commonApi } from '../../services/endpoints';
 import AuthSplitLayout from '../../components/AuthSplitLayout';
+import BrandLogo from '../../components/BrandLogo';
 import { PASSWORD_PANEL } from '../../data/authPanels';
 
 export default function ResetPasswordForm() {
@@ -48,8 +49,8 @@ export default function ResetPasswordForm() {
   return (
     <AuthSplitLayout {...PASSWORD_PANEL}>
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-600 rounded-2xl mb-4 shadow-lg">
-          <Building2 className="w-7 h-7 text-white" />
+        <div className="inline-flex mb-4">
+          <BrandLogo size="lg" className="rounded-2xl shadow-lg" />
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Reset your password</h1>
         <p className="text-gray-500 mt-1 text-sm">Choose a strong new password</p>

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Eye, EyeOff, Loader2, User, Briefcase } from 'lucide-react';
+import { Eye, EyeOff, Loader2, User, Briefcase } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { commonApi } from '../../services/endpoints';
 import AuthSplitLayout from '../../components/AuthSplitLayout';
+import BrandLogo from '../../components/BrandLogo';
 import Dropdown from '../../components/Dropdown';
 import { EMAIL_VERIFY_PANEL, REGISTER_PANEL } from '../../data/authPanels';
 import { ORGANISATION_TYPES as ORG_TYPES } from '../../data/constants';
@@ -89,8 +90,8 @@ export default function RegisterForm() {
   return (
     <AuthSplitLayout {...REGISTER_PANEL}>
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-600 rounded-2xl mb-4 shadow-lg">
-          <Building2 className="w-7 h-7 text-white" />
+        <div className="inline-flex mb-4">
+          <BrandLogo size="lg" className="rounded-2xl shadow-lg" />
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Create your account</h1>
         <p className="text-gray-500 mt-1 text-sm">Join SharedOwnership today</p>

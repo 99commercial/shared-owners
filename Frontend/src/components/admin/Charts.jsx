@@ -138,7 +138,7 @@ export function TrendChart({ data = [], series, type = 'area', height = 220 }) {
 }
 
 /** Horizontal bars: items = [{ label, value, color?, to?, sub? }] */
-export function BarList({ items = [], formatValue = formatNumber, empty = 'Nothing to show yet', color = '#2563eb' }) {
+export function BarList({ items = [], formatValue = formatNumber, empty = 'Nothing to show yet', color = '#f2c514' }) {
   const max = Math.max(0, ...items.map((i) => i.value));
   if (!items.length || max === 0) return <p className="text-sm text-gray-400 py-4 text-center">{empty}</p>;
 

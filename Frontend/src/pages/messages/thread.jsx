@@ -190,12 +190,12 @@ export default function MessageThreadPage() {
                           )}
                           <div className={`rounded-2xl px-3.5 py-2 text-sm leading-relaxed whitespace-pre-wrap break-words shadow-sm ${
                             message.mine
-                              ? 'rounded-br-md bg-brand-500 text-white'
+                              ? 'rounded-br-md bg-brand-500 text-ink'
                               : 'rounded-bl-md border border-gray-200/80 bg-white text-ink'
                           }`}
                           >
                             {message.text}
-                            <time className={`mt-1 block text-right text-[10px] ${message.mine ? 'text-white/70' : 'text-gray-400'}`}>
+                            <time className={`mt-1 block text-right text-[10px] ${message.mine ? 'text-ink/50' : 'text-gray-400'}`}>
                               {chatTime(message.sentAt)}
                             </time>
                           </div>
@@ -231,7 +231,7 @@ export default function MessageThreadPage() {
             <button
               type="submit"
               disabled={sending || !draft.trim()}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500 text-white hover:bg-brand-600 disabled:opacity-40"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500 text-ink hover:bg-brand-400 disabled:opacity-40"
               aria-label="Send message"
             >
               {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}

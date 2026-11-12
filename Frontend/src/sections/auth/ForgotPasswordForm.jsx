@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Loader2, Mail } from 'lucide-react';
+import { Loader2, Mail } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { commonApi } from '../../services/endpoints';
 import AuthSplitLayout from '../../components/AuthSplitLayout';
+import BrandLogo from '../../components/BrandLogo';
 import { PASSWORD_PANEL } from '../../data/authPanels';
 
 export default function ForgotPasswordForm() {
@@ -53,8 +54,8 @@ export default function ForgotPasswordForm() {
   return (
     <AuthSplitLayout {...PASSWORD_PANEL}>
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-600 rounded-2xl mb-4 shadow-lg">
-          <Building2 className="w-7 h-7 text-white" />
+        <div className="inline-flex mb-4">
+          <BrandLogo size="lg" className="rounded-2xl shadow-lg" />
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Forgot your password?</h1>
         <p className="text-gray-500 mt-1 text-sm">Enter your email and we'll send you a reset link</p>

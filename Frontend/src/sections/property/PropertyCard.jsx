@@ -73,7 +73,7 @@ export default function PropertyCard({ property, active = false, onHover }) {
         <div className="mt-auto pt-4">
           <div className="flex items-center justify-between gap-3 pt-3 border-t border-gray-100">
             <span className="text-[11px] text-gray-400 truncate">{property.reference ? <>Ref: <b className="font-semibold text-gray-500">{property.reference}</b></> : ' '}</span>
-            <Link to={to} className="inline-flex items-center gap-1.5 shrink-0 rounded-lg bg-brand-500 px-3.5 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-600">
+            <Link to={to} className="inline-flex items-center gap-1.5 shrink-0 rounded-lg bg-brand-500 px-3.5 py-2 text-xs font-bold text-ink transition-colors hover:bg-brand-400">
               View details <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

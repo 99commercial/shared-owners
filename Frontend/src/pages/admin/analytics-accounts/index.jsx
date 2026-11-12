@@ -108,7 +108,7 @@ export default function AdminAccountAnalyticsPage() {
           <TrendChart
             data={a.loginsByDay}
             series={[
-              { key: 'logins', label: 'Logins', color: '#2563eb' },
+              { key: 'logins', label: 'Logins', color: '#f2c514' },
               { key: 'uniqueAccounts', label: 'Distinct accounts', color: '#16a34a' },
             ]}
           />

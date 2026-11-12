@@ -20,10 +20,10 @@ export const ROLE_SHORT_LABELS = {
 /** Account roles shown on the dashboards, with their chart colours */
 export const ACCOUNT_ROLES = ['user', 'organisation', 'organisation-admin', 'organisation-user'];
 export const ROLE_COLORS = {
-  user: '#2563eb',
-  organisation: '#7c3aed',
-  'organisation-admin': '#0891b2',
-  'organisation-user': '#f59e0b',
+  user: '#f2c514',
+  organisation: '#000000',
+  'organisation-admin': '#a8870c',
+  'organisation-user': '#6b7280',
 };
 
 export const RANGE_OPTIONS = [
@@ -75,7 +75,7 @@ export const CONTACT_STATUS_STYLES = {
 };
 
 /** Palette for categorical charts (donuts, bar lists) */
-export const CHART_COLORS = ['#2563eb', '#7c3aed', '#0891b2', '#f59e0b', '#16a34a', '#e11d48', '#64748b', '#ea580c'];
+export const CHART_COLORS = ['#f2c514', '#000000', '#a8870c', '#6b7280', '#d4a90f', '#374151', '#f5ce2a', '#9ca3af'];
 
 export const STATUS_COLORS = {
   draft: '#94a3b8',

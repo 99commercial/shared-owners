@@ -6,9 +6,9 @@ export default function AboutMission() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10">
           {[
-            { icon: Target, title: 'Our Mission', desc: 'To make homeownership a reality for everyone by simplifying the shared ownership journey and connecting buyers with the right providers.', color: 'bg-blue-100 text-blue-600' },
-            { icon: Shield, title: 'Our Promise', desc: 'We work only with verified, regulated housing associations and developers to ensure every listing meets the highest standards of quality and compliance.', color: 'bg-green-100 text-green-600' },
-            { icon: Heart, title: 'Our Values', desc: 'Transparency, accessibility, and community are at the heart of everything we do. We believe everyone deserves a safe, affordable home.', color: 'bg-rose-100 text-rose-600' },
+            { icon: Target, title: 'Our Mission', desc: 'To make homeownership a reality for everyone by simplifying the shared ownership journey and connecting buyers with the right providers.', color: 'bg-brand-100 text-ink' },
+            { icon: Shield, title: 'Our Promise', desc: 'We work only with verified, regulated housing associations and developers to ensure every listing meets the highest standards of quality and compliance.', color: 'bg-black text-brand-500' },
+            { icon: Heart, title: 'Our Values', desc: 'Transparency, accessibility, and community are at the heart of everything we do. We believe everyone deserves a safe, affordable home.', color: 'bg-brand-500 text-ink' },
           ].map(({ icon: Icon, title, desc, color }) => (
             <div key={title} className="card p-8">
               <div className={`inline-flex items-center justify-center w-12 h-12 ${color} rounded-xl mb-4`}>

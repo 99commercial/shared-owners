@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { LogOut, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { chatApi } from '../services/endpoints';
+import BrandLogo from './BrandLogo';
 
 const PROFILE_KEYS = ['userProfile', 'organisationAdminProfile', 'organisationUserProfile', 'adminProfile'];
 
@@ -26,23 +27,7 @@ const activeLinkTo = (links, pathname) =>
     .sort((a, b) => b.to.length - a.to.length)[0]?.to;
 
 export function Logo({ compact }) {
-  if (compact) {
-    return (
-      <div className="flex rounded overflow-hidden text-[11px] font-black leading-none shadow-sm">
-        <span className="bg-ink text-white px-1.5 py-1.5">S</span>
-        <span className="bg-brand-500 text-white px-1.5 py-1.5">O</span>
-      </div>
-    );
-  }
-  return (
-    <div className="flex flex-col items-center">
-      <div className="flex rounded-sm overflow-hidden text-[13px] font-black tracking-tight leading-none">
-        <span className="bg-ink text-white px-2 py-1.5">SHARED</span>
-        <span className="bg-brand-500 text-white px-2 py-1.5">OWNERSHIP</span>
-      </div>
-      <div className="text-[9px] font-extrabold tracking-[0.12em] text-ink mt-1">PROPERTY MARKETPLACE</div>
-    </div>
-  );
+  return <BrandLogo size={compact ? 'sm' : 'sidebar'} />;
 }
 
 function Avatar({ user, size = 'w-9 h-9' }) {
@@ -80,8 +65,8 @@ function SidebarContent({ groups, collapsed, onNavigate, onClose }) {
 
   return (
     <div className="flex flex-col h-full bg-white">
-      <div className={`relative shrink-0 flex items-center h-16 border-b border-gray-200 ${collapsed ? 'justify-center' : 'justify-center px-5'}`}>
-        <Link to="/" title="SharedOwnership"><Logo compact={collapsed} /></Link>
+      <div className={`relative shrink-0 flex items-center h-28 border-b border-gray-200 ${collapsed ? 'justify-center' : 'justify-center px-5'}`}>
+        <Link to="/" title="Shared Owner"><Logo compact={collapsed} /></Link>
         {onClose && (
           <button onClick={onClose} className="absolute right-4 p-1.5 rounded-lg text-gray-500 hover:bg-gray-100" aria-label="Close sidebar">
             <X className="w-5 h-5" />

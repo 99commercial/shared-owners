@@ -10,9 +10,9 @@ export default function HowItWorks() {
         </div>
         <div className="grid md:grid-cols-3 gap-10">
           {[
-            { icon: Search, title: 'Find a property', desc: 'Browse shared ownership homes across the UK. Filter by location, price, and type.', color: 'bg-blue-100 text-blue-600' },
-            { icon: Home, title: 'Buy your share', desc: 'Purchase between 10%–75% of the property. Pay rent on the remaining share.', color: 'bg-green-100 text-green-600' },
-            { icon: Zap, title: 'Staircase up', desc: 'Buy more shares over time until you own 100% of your home. Build equity as you go.', color: 'bg-purple-100 text-purple-600' },
+            { icon: Search, title: 'Find a property', desc: 'Browse shared ownership homes across the UK. Filter by location, price, and type.', color: 'bg-brand-100 text-ink' },
+            { icon: Home, title: 'Buy your share', desc: 'Purchase between 10%–75% of the property. Pay rent on the remaining share.', color: 'bg-black text-brand-500' },
+            { icon: Zap, title: 'Staircase up', desc: 'Buy more shares over time until you own 100% of your home. Build equity as you go.', color: 'bg-brand-500 text-ink' },
           ].map(({ icon: Icon, title, desc, color }) => (
             <div key={title} className="text-center">
               <div className={`inline-flex items-center justify-center w-14 h-14 ${color} rounded-2xl mb-4`}>

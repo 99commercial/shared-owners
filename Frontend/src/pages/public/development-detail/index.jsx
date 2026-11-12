@@ -57,7 +57,7 @@ function HomesSection({ properties }) {
                   key={t.value || 'all'}
                   type="button"
                   onClick={() => setAvailability(t.value)}
-                  className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors ${availability === t.value ? 'bg-brand-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+                  className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors ${availability === t.value ? 'bg-brand-500 text-ink' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                 >
                   {t.label} <span className="opacity-70">({t.count})</span>
                 </button>
@@ -129,7 +129,7 @@ export default function DevelopmentDetailPage() {
           breadcrumbs={[{ label: 'Home', to: '/' }, { label: 'Developments', to: '/developments' }, { label: development.name }]}
           badges={[
             { label: homes.available ? `${homes.available} available` : homes.homes ? 'Fully reserved' : 'Coming soon', className: homes.available ? 'bg-emerald-500 text-white' : 'bg-gray-700 text-white' },
-            development.developmentType && { label: labelize(development.developmentType), className: 'bg-brand-500 text-white' },
+            development.developmentType && { label: labelize(development.developmentType), className: 'bg-brand-500 text-ink' },
           ]}
           title={development.name}
           address={addressLine(development.address, { full: true })}

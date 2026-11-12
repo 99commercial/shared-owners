@@ -103,7 +103,7 @@ export default function BlogPage() {
               type="button"
               onClick={() => update({ category: c.value })}
               className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
-                category === c.value ? 'bg-primary-600 border-primary-600 text-white' : 'bg-white border-gray-200 text-gray-600 hover:border-primary-300'
+                category === c.value ? 'bg-brand-500 border-brand-500 text-ink' : 'bg-white border-gray-200 text-gray-600 hover:border-brand-300'
               }`}
             >
               {c.label}
@@ -138,12 +138,12 @@ export default function BlogPage() {
           </div>
         )}
 
-        <div className="mt-16 rounded-3xl bg-primary-600 text-white p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 rounded-3xl bg-ink text-white p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-bold">Ready to find your home?</h3>
-            <p className="text-white/80 mt-1">Browse shared-ownership properties across the UK.</p>
+            <p className="text-white/70 mt-1">Browse shared-ownership properties across the UK.</p>
           </div>
-          <Link to="/properties" className="inline-flex items-center gap-2 rounded-full bg-white text-primary-700 px-6 py-3 font-semibold hover:bg-primary-50">
+          <Link to="/properties" className="inline-flex items-center gap-2 rounded-full bg-brand-500 text-ink px-6 py-3 font-semibold hover:bg-brand-400">
             Browse properties <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

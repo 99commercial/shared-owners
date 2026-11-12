@@ -75,7 +75,7 @@ export default function AdminPropertyAnalyticsPage() {
             data={a.createdByDay}
             type="bar"
             series={[
-              { key: 'user', label: 'Individual users', color: '#2563eb' },
+              { key: 'user', label: 'Individual users', color: '#f2c514' },
               { key: 'organisation', label: 'Organisations', color: '#7c3aed' },
             ]}
           />
@@ -89,7 +89,7 @@ export default function AdminPropertyAnalyticsPage() {
             <div className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-2">Owner type</div>
             <SplitBar
               items={[
-                { label: 'Individual users', value: a.byOwnerType.user || 0, color: '#2563eb' },
+                { label: 'Individual users', value: a.byOwnerType.user || 0, color: '#f2c514' },
                 { label: 'Organisations', value: a.byOwnerType.organisation || 0, color: '#7c3aed' },
               ]}
             />

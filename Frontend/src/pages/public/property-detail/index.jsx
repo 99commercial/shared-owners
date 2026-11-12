@@ -171,7 +171,7 @@ export default function PropertyDetailPage() {
           breadcrumbs={[{ label: 'Home', to: '/' }, { label: 'Properties', to: '/properties' }, { label: property.name }]}
           badges={[
             availability && { label: labelize(availability), className: AVAILABILITY_BADGE[availability] },
-            scheme && { label: labelize(scheme), className: 'bg-brand-500 text-white' },
+            scheme && { label: labelize(scheme), className: 'bg-brand-500 text-ink' },
             property.reference && { label: `Ref ${property.reference}` },
           ]}
           title={property.name}
@@ -236,10 +236,10 @@ export default function PropertyDetailPage() {
                     </div>
                   ))}
                 </dl>
-                <div className="rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 p-5 self-start">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/70">{share ? `${minShare}% share price` : 'Full market value'}</p>
+                <div className="rounded-xl bg-gradient-to-br from-brand-500 to-brand-400 p-5 self-start text-ink">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-ink/60">{share ? `${minShare}% share price` : 'Full market value'}</p>
                   <p className="text-3xl font-extrabold mt-1">{formatMoney(share || pricing.fullMarketValue)}</p>
-                  {monthly ? <p className="text-xs text-white/80 mt-2">+ about <b>{formatMoney(monthly)}</b> a month in rent and charges</p> : null}
+                  {monthly ? <p className="text-xs text-ink/80 mt-2">+ about <b>{formatMoney(monthly)}</b> a month in rent and charges</p> : null}
                 </div>
               </div>
               <p className="px-5 sm:px-6 pb-5 text-[11px] text-white/50">Figures are provided by the seller and may change. Always confirm costs with the provider and an independent mortgage adviser.</p>

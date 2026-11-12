@@ -54,9 +54,9 @@ export function Stepper({ steps, activeKey, onSelect }) {
                 <span
                   className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
                     isActive
-                      ? 'bg-brand-500 text-white ring-4 ring-brand-100 shadow-md'
+                      ? 'bg-brand-500 text-ink ring-4 ring-brand-100 shadow-md'
                       : done
-                        ? 'bg-brand-500 text-white'
+                        ? 'bg-brand-500 text-ink'
                         : step.state === 'incomplete'
                           ? 'bg-brand-100 text-brand-700'
                           : 'bg-gray-100 text-gray-400 group-enabled:group-hover:bg-gray-200'

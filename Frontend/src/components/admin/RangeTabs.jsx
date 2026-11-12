@@ -10,7 +10,7 @@ export default function RangeTabs({ value, onChange }) {
           type="button"
           onClick={() => onChange(o.value)}
           className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
-            value === o.value ? 'bg-brand-600 text-white shadow' : 'text-gray-600 hover:text-ink hover:bg-brand-50'
+            value === o.value ? 'bg-brand-600 text-ink shadow' : 'text-gray-600 hover:text-ink hover:bg-brand-50'
           }`}
         >
           {o.label}

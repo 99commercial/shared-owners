@@ -39,7 +39,7 @@ export function ListingPagination({ pagination, onPage }) {
         <ChevronLeft className="w-4 h-4" /> Previous
       </button>
       <span className="text-sm text-gray-600">Page <b className="text-ink">{page}</b> of {totalPages}</span>
-      <button type="button" disabled={page >= totalPages} onClick={() => onPage(page + 1)} className={`${button} bg-brand-500 text-white hover:bg-brand-600`}>
+      <button type="button" disabled={page >= totalPages} onClick={() => onPage(page + 1)} className={`${button} bg-brand-500 text-ink hover:bg-brand-400`}>
         Next <ChevronRight className="w-4 h-4" />
       </button>
     </nav>
